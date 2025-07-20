@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0l7317ckt7pu"]
+
+[ext_resource type="PackedScene" uid="uid://dlifhjsn81i3l" path="res://game/object/house.tscn" id="1_vxsou"]
+[ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
+
+[sub_resource type="Sky" id="Sky_fvxhl"]
+sky_material = SubResource("ProceduralSkyMaterial_37pa0")
+
+[sub_resource type="Environment" id="Environment_vxsou"]
+background_mode = 2
+sky = SubResource("Sky_fvxhl")
+fog_enabled = true
+fog_light_color = Color(0.268862, 0.294321, 0.334342, 1)
+fog_light_energy = 3.65
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_length = 45.12
+volumetric_fog_detail_spread = 1.46409
+
+[node name="Map" type="Node3D"]
+
+[node name="Main" type="Node3D" parent="."]
+
+[node name="Enviroment" type="Node3D" parent="Main"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Main/Enviroment"]
+environment = SubResource("Environment_vxsou")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main/Enviroment"]
+transform = Transform3D(-0.260738, 0.963918, -0.0536397, 0.879424, 0.26007, 0.398718, 0.398282, 0.0567887, -0.915503, 0, 116.532, 0)
+light_color = Color(0.273873, 0.273873, 0.273873, 1)
+shadow_enabled = true
+
+[node name="House" type="Node3D" parent="Main"]
+
+[node name="House" parent="Main/House" instance=ExtResource("1_vxsou")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Player" type="Node3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33331, 0)
+
+[node name="Player" parent="Main/Player" instance=ExtResource("2_a2d3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05279, -3.35967, 83.419)
