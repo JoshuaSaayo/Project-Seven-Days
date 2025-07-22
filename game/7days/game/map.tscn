@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0l7317ckt7pu"]
+[gd_scene load_steps=7 format=3 uid="uid://d0l7317ckt7pu"]
 
 [ext_resource type="PackedScene" uid="uid://dlifhjsn81i3l" path="res://game/object/house.tscn" id="1_vxsou"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
+[ext_resource type="PackedScene" uid="uid://dwo12l5hsh8jg" path="res://gltf/wisteria_map.glb" id="2_r4hkc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
 
@@ -37,6 +38,10 @@ shadow_enabled = true
 
 [node name="House" parent="Main/House" instance=ExtResource("1_vxsou")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+visible = false
+
+[node name="wisteria_map" parent="Main/House" instance=ExtResource("2_r4hkc")]
+transform = Transform3D(3.01, 0, 0, 0, 3.01, 0, 0, 0, 3.01, 0, 0, 0)
 
 [node name="Player" type="Node3D" parent="Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33331, 0)
