@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var move_speed = 750
 @export var sprint_speed = 850
-@export var jump_force = 5.0
+@export var jump_force = 1.0
 @export var mouse_sensitivity = 0.2
 @export var deceleration = 15.0
 @export var max_pitch = 20.0 # degrees

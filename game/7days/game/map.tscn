@@ -12,7 +12,6 @@ sky_material = SubResource("ProceduralSkyMaterial_37pa0")
 [sub_resource type="Environment" id="Environment_vxsou"]
 background_mode = 2
 sky = SubResource("Sky_fvxhl")
-fog_enabled = true
 fog_light_color = Color(0.268862, 0.294321, 0.334342, 1)
 fog_light_energy = 3.65
 volumetric_fog_enabled = true
@@ -30,8 +29,7 @@ volumetric_fog_detail_spread = 1.46409
 environment = SubResource("Environment_vxsou")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main/Enviroment"]
-transform = Transform3D(-0.260738, 0.963918, -0.0536397, 0.879424, 0.26007, 0.398718, 0.398282, 0.0567887, -0.915503, 0, 116.532, 0)
-light_color = Color(0.273873, 0.273873, 0.273873, 1)
+transform = Transform3D(-0.260738, 0.963918, -0.0536399, 0.0908817, 0.0798228, 0.992658, 0.961122, 0.253949, -0.108416, 0, 116.532, 0)
 shadow_enabled = true
 
 [node name="House" type="Node3D" parent="Main"]
@@ -48,3 +46,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33331, 0)
 
 [node name="Player" parent="Main/Player" instance=ExtResource("2_a2d3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05279, -3.35967, 83.419)
+
+[node name="Node3D" type="Node3D" parent="Main"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Main/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8575, 26.8994, 72.057)
+light_color = Color(1, 0.900473, 0.829361, 1)
+light_energy = 2.4
+shadow_enabled = true
+omni_range = 4096.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Main/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3353, 26.8994, 72.057)
+light_color = Color(1, 0.900473, 0.829361, 1)
+light_energy = 2.4
+shadow_enabled = true
+omni_range = 4096.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Main/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88298, 26.8994, 72.057)
+light_color = Color(1, 0.900473, 0.829361, 1)
+light_energy = 2.4
+shadow_enabled = true
+omni_range = 4096.0
+
+[node name="LV" type="OmniLight3D" parent="Main/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96152, 38.8562, 8.6731)
+light_color = Color(1, 0.900473, 0.829361, 1)
+light_energy = 2.4
+shadow_enabled = true
+omni_range = 4096.0
+
+[node name="LV2" type="OmniLight3D" parent="Main/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4749, 38.8562, -27.7439)
+light_color = Color(1, 0.900473, 0.829361, 1)
+light_energy = 2.4
+shadow_enabled = true
+omni_range = 4096.0
+
+[node name="LV3" type="OmniLight3D" parent="Main/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4749, 38.8562, 42.5219)
+light_color = Color(1, 0.900473, 0.829361, 1)
+light_energy = 2.4
+shadow_enabled = true
+omni_range = 4096.0
+
+[node name="LV4" type="OmniLight3D" parent="Main/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7269, 38.8562, 42.5219)
+light_color = Color(1, 0.900473, 0.829361, 1)
+light_energy = 2.4
+shadow_enabled = true
+omni_range = 4096.0
+
+[node name="LV5" type="OmniLight3D" parent="Main/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9902, 38.9726, -23.1238)
+light_color = Color(1, 0.900473, 0.829361, 1)
+light_energy = 2.4
+shadow_enabled = true
+omni_range = 4096.0
