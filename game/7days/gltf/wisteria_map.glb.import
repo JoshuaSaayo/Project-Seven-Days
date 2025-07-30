@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dwo12l5hsh8jg"
+uid="uid://bus41benxc45n"
 path="res://.godot/imported/wisteria_map.glb-a05533d536f4b6cf1b86c389d74a772a.scn"
 
 [deps]
@@ -34,28 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:\\Windows": {
-"generate/physics": true
-},
-"PATH:door": {
-"generate/physics": true
-},
-"PATH:door_001": {
-"generate/physics": true
-},
-"PATH:door_002": {
-"generate/physics": true
-},
-"PATH:door_003": {
-"generate/physics": true
-},
-"PATH:door_004": {
-"generate/physics": true
-},
-"PATH:door_005": {
-"generate/physics": true
-},
-"PATH:shoerack": {
+"PATH:House": {
 "generate/physics": true
 }
 }
