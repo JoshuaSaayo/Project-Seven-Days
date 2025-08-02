@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var current_speed = 0.0
 var target_speed = 0.0
 var direction = Vector3.ZERO
+var force_step : bool = false
 
 #detection
 var detected_object : Array = []
@@ -77,9 +78,16 @@ func _physics_process(delta):
 	
 	if get_last_slide_collision():
 		var collision_normal = get_last_slide_collision().get_normal()
-		print(collision_normal.y)
-		if collision_normal.y > 0.5:  # Adjust threshold as needed
-			velocity.y += gravity * delta * 0.3
+		if collision_normal.y == clamp(collision_normal.y, 0.1, 0.9):  # Adjust threshold as needed
+			
+			velocity.y +=  0.1
+			force_step = true
+			print(velocity.y)
+		else:
+			force_step = false
+	else:
+		force_step = false
+		
 	
 	move_and_slide()
 	
@@ -87,7 +95,7 @@ func _physics_process(delta):
 func _process(delta: float) -> void:
 	# Apply gravity
 	
-	if !is_on_floor():
+	if !is_on_floor() and !force_step:
 		velocity.y -= gravity * delta
 
 func object_checker() -> void:
@@ -117,8 +125,6 @@ func _check_action() -> void:
 func _on_player_detector_area_entered(area: Area3D) -> void:
 	detected_object.append(area.name)
 	object_checker()
-	print("here: " +  area.name)
-	
 
 func _on_player_detector_area_exited(area: Area3D) -> void:
 	detected_object.erase(area.name)

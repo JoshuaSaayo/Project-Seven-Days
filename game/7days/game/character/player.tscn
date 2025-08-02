@@ -11,8 +11,6 @@ height = 7.59416
 size = Vector3(0.65625, 0.378849, 3.35925)
 
 [node name="Player" type="CharacterBody3D"]
-floor_stop_on_slope = false
-floor_constant_speed = true
 script = ExtResource("1_ntxbt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

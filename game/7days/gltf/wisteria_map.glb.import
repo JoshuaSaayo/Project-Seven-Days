@@ -52,6 +52,9 @@ _subresources={
 "PATH:Entrance": {
 "generate/physics": true
 },
+"PATH:FloorGeneral": {
+"generate/physics": true
+},
 "PATH:HallwayA": {
 "generate/physics": true
 },
