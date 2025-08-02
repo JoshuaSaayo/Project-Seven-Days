@@ -18,10 +18,11 @@ func toggle_door(door) -> void:
 	var pivot : Node3D = door_map[door]
 	var tween = get_tree().create_tween()
 	
-	if pivot.rotation.y == 2:
-		tween.tween_property(pivot, "rotation", Vector3(0,0,0), 1)
+	print( pivot.rotation.y )
+	if pivot.rotation.y != 0:
+		tween.tween_property(pivot, "rotation", Vector3(0,0,0), 1.5).set_trans(Tween.TRANS_SPRING)
 	else:
-		tween.tween_property(pivot, "rotation", Vector3(0,2,0), 1)
+		tween.tween_property(pivot, "rotation", Vector3(0,1.6,0), 1.5).set_trans(Tween.TRANS_SPRING)
 		
 func init_action(text : String) ->void:
 	toggle_door(text)

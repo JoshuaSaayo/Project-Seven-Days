@@ -649,8 +649,8 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DiningDoorPivot8/DiningDoor/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_cfory")
 
-[node name="DiningDoor2||Door" type="Area3D" parent="DiningDoorPivot8"]
+[node name="DiningDoor||Door" type="Area3D" parent="DiningDoorPivot8"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DiningDoorPivot8/DiningDoor2||Door"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DiningDoorPivot8/DiningDoor||Door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33505, 3.16298, -0.012146)
 shape = SubResource("BoxShape3D_7rbqc")

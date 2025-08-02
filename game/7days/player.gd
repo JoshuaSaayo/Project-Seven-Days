@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var move_speed = 750
 @export var sprint_speed = 1000
-@export var jump_force = 1.0
+@export var jump_force = 2.0
 @export var mouse_sensitivity = 0.2
 @export var deceleration = 15.0
 @export var max_pitch = 20.0 # degrees
@@ -67,22 +67,28 @@ func _physics_process(delta):
 	else:
 		current_speed = 0
 	
-	# Apply gravity
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 	
 	# Calculate velocity
-	if direction != Vector3.ZERO:
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
-	else:
-		velocity = Vector3.ZERO
+	velocity.x = direction.x * current_speed
+	velocity.z = direction.z * current_speed
+	
+	if get_last_slide_collision():
+		var collision_normal = get_last_slide_collision().get_normal()
+		print(collision_normal.y)
+		if collision_normal.y > 0.5:  # Adjust threshold as needed
+			velocity.y += gravity * delta * 0.3
 	
 	move_and_slide()
+	
+
+func _process(delta: float) -> void:
+	# Apply gravity
+	
+	if !is_on_floor():
+		velocity.y -= gravity * delta
 
 func object_checker() -> void:
 	if detected_object.is_empty():
