@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0l7317ckt7pu"]
 
-[ext_resource type="PackedScene" uid="uid://dlifhjsn81i3l" path="res://game/object/house.tscn" id="1_vxsou"]
+[ext_resource type="PackedScene" uid="uid://br3mf7y24ft3" path="res://3d_assets/house/house.tscn" id="1_vxsou"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
-[ext_resource type="PackedScene" uid="uid://dwo12l5hsh8jg" path="res://gltf/wisteria_map.glb" id="2_r4hkc"]
+[ext_resource type="PackedScene" uid="uid://cp4vtvjbr4fxe" path="res://3d_assets/house/lights.tscn" id="2_r4hkc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
 
@@ -16,8 +16,6 @@ fog_light_color = Color(0.268862, 0.294321, 0.334342, 1)
 fog_light_energy = 3.65
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0, 0, 1)
-volumetric_fog_length = 45.12
-volumetric_fog_detail_spread = 1.46409
 
 [node name="Map" type="Node3D"]
 
@@ -31,76 +29,187 @@ environment = SubResource("Environment_vxsou")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main/Enviroment"]
 transform = Transform3D(-0.260738, 0.963918, -0.0536399, 0.0908817, 0.0798228, 0.992658, 0.961122, 0.253949, -0.108416, 0, 116.532, 0)
 shadow_enabled = true
+directional_shadow_max_distance = 200.0
 
 [node name="House" type="Node3D" parent="Main"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="House" parent="Main/House" instance=ExtResource("1_vxsou")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-visible = false
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="wisteria_map" parent="Main/House" instance=ExtResource("2_r4hkc")]
-transform = Transform3D(3.01, 0, 0, 0, 3.01, 0, 0, 0, 3.01, 0, 0, 0)
+[node name="Lights" parent="Main/House" instance=ExtResource("2_r4hkc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Player" type="Node3D" parent="Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33331, 0)
 
 [node name="Player" parent="Main/Player" instance=ExtResource("2_a2d3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05279, -3.35967, 83.419)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.9181, -3.35967, -3.36254)
 
-[node name="Node3D" type="Node3D" parent="Main"]
+[node name="Lights" type="Node3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.2, 35, -6.5)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Main/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8575, 26.8994, 72.057)
-light_color = Color(1, 0.900473, 0.829361, 1)
-light_energy = 2.4
+[node name="LightsLivingRoom" type="Node3D" parent="Main/Lights"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 10.0
 shadow_enabled = true
-omni_range = 4096.0
+omni_range = 43.438
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Main/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3353, 26.8994, 72.057)
-light_color = Color(1, 0.900473, 0.829361, 1)
-light_energy = 2.4
+[node name="DImLight" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, -12.6)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
 shadow_enabled = true
-omni_range = 4096.0
+omni_range = 74.982
+omni_attenuation = 1.176
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="Main/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88298, 26.8994, 72.057)
-light_color = Color(1, 0.900473, 0.829361, 1)
-light_energy = 2.4
+[node name="DImLight2" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, -38.2)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
 shadow_enabled = true
-omni_range = 4096.0
+omni_range = 74.982
+omni_attenuation = 1.176
 
-[node name="LV" type="OmniLight3D" parent="Main/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96152, 38.8562, 8.6731)
-light_color = Color(1, 0.900473, 0.829361, 1)
-light_energy = 2.4
+[node name="DImLight3" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, 12.8)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
 shadow_enabled = true
-omni_range = 4096.0
+omni_range = 74.982
+omni_attenuation = 1.176
 
-[node name="LV2" type="OmniLight3D" parent="Main/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4749, 38.8562, -27.7439)
-light_color = Color(1, 0.900473, 0.829361, 1)
-light_energy = 2.4
+[node name="DImLight4" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, 37.8)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
 shadow_enabled = true
-omni_range = 4096.0
+omni_range = 74.982
+omni_attenuation = 1.176
 
-[node name="LV3" type="OmniLight3D" parent="Main/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4749, 38.8562, 42.5219)
-light_color = Color(1, 0.900473, 0.829361, 1)
-light_energy = 2.4
+[node name="DImLight5" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, -12.6)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
 shadow_enabled = true
-omni_range = 4096.0
+omni_range = 74.982
+omni_attenuation = 1.176
 
-[node name="LV4" type="OmniLight3D" parent="Main/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7269, 38.8562, 42.5219)
-light_color = Color(1, 0.900473, 0.829361, 1)
-light_energy = 2.4
+[node name="DImLight6" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, -38.2)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
 shadow_enabled = true
-omni_range = 4096.0
+omni_range = 74.982
+omni_attenuation = 1.176
 
-[node name="LV5" type="OmniLight3D" parent="Main/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9902, 38.9726, -23.1238)
-light_color = Color(1, 0.900473, 0.829361, 1)
-light_energy = 2.4
+[node name="DImLight7" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, 12.8)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
 shadow_enabled = true
-omni_range = 4096.0
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight8" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, 37.8)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight9" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4799, 6, -12.6)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight10" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4799, 6, -38.2)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight11" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4799, 6, 12.8)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight12" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4799, 6, 37.8)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight13" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4799, 6, -12.6)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight14" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4799, 6, -38.2)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight15" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4799, 6, 12.8)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight16" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4799, 6, 37.8)
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight17" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight18" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight19" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176
+
+[node name="DImLight20" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
+light_color = Color(1, 1, 0.945098, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 74.982
+omni_attenuation = 1.176

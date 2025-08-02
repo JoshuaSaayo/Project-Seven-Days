@@ -8,6 +8,9 @@
 height = 7.59416
 
 [node name="Player" type="CharacterBody3D"]
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_max_angle = 3.14159
 script = ExtResource("1_ntxbt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
