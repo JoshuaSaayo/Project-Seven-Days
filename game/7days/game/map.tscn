@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0l7317ckt7pu"]
+[gd_scene load_steps=8 format=3 uid="uid://d0l7317ckt7pu"]
 
 [ext_resource type="PackedScene" uid="uid://br3mf7y24ft3" path="res://3d_assets/house/house.tscn" id="1_vxsou"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
 [ext_resource type="PackedScene" uid="uid://cp4vtvjbr4fxe" path="res://3d_assets/house/lights.tscn" id="2_r4hkc"]
+[ext_resource type="PackedScene" uid="uid://tt1vc1b3n22y" path="res://3d_assets/house/doors.tscn" id="3_r4hkc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
 
@@ -38,6 +39,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Lights" parent="Main/House" instance=ExtResource("2_r4hkc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Doors" parent="Main/House" instance=ExtResource("3_r4hkc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Player" type="Node3D" parent="Main"]

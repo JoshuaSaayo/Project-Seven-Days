@@ -12,6 +12,11 @@ var current_speed = 0.0
 var target_speed = 0.0
 var direction = Vector3.ZERO
 
+#detection
+var detected_object : Array = []
+var current_object  : Array = []
+
+
 # Camera nodes
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera3D
@@ -47,6 +52,10 @@ func _physics_process(delta):
 	# Calculate movement direction relative to character's orientation
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	#Handle action
+	if Input.is_action_just_pressed("action"):
+		_check_action()
+	
 	# Handle speed
 	target_speed = move_speed
 	if is_sprinting and input_dir.y < 0:  # Only sprint when moving forward
@@ -74,3 +83,38 @@ func _physics_process(delta):
 		velocity = Vector3.ZERO
 	
 	move_and_slide()
+
+func object_checker() -> void:
+	if detected_object.is_empty():
+		return
+		
+	if delimeter_checker(detected_object[0]):
+		current_object = delimeter_checker(detected_object[0])
+	else:
+		detected_object.erase(detected_object[0])
+
+func delimeter_checker(obj_name):
+	if ! "||" in obj_name:
+		return null
+	
+	var word_arr = obj_name.split("||")
+	return word_arr
+
+func _check_action() -> void:
+	if current_object == []:
+		return
+	var node = get_tree().get_first_node_in_group(current_object[1])
+	
+	if is_instance_valid(node):
+		node.init_action(current_object[0])
+
+func _on_player_detector_area_entered(area: Area3D) -> void:
+	detected_object.append(area.name)
+	object_checker()
+	print("here: " +  area.name)
+	
+
+func _on_player_detector_area_exited(area: Area3D) -> void:
+	detected_object.erase(area.name)
+	if delimeter_checker(area.name):
+		current_object = []

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cft7x1gqa3lkb"]
+[gd_scene load_steps=5 format=3 uid="uid://cft7x1gqa3lkb"]
 
 [ext_resource type="Script" uid="uid://drpcy3fd4nju7" path="res://player.gd" id="1_ntxbt"]
 
@@ -6,6 +6,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ntxbt"]
 height = 7.59416
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ntxbt"]
+size = Vector3(0.65625, 0.378849, 3.35925)
 
 [node name="Player" type="CharacterBody3D"]
 floor_stop_on_slope = false
@@ -26,3 +29,14 @@ shape = SubResource("CapsuleShape3D_ntxbt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+
+[node name="PlayerDetector" type="Area3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/PlayerDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000150204, 9.49488, -2.53826)
+shape = SubResource("BoxShape3D_ntxbt")
+debug_color = Color(0.656344, 0.386526, 0.873097, 0.42)
+
+[connection signal="area_entered" from="CameraPivot/PlayerDetector" to="." method="_on_player_detector_area_entered"]
+[connection signal="area_exited" from="CameraPivot/PlayerDetector" to="." method="_on_player_detector_area_exited"]

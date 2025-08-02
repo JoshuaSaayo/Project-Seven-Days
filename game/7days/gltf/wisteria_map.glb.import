@@ -34,7 +34,37 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:House": {
+"PATH:BathroomA": {
+"generate/physics": true
+},
+"PATH:BathroomB": {
+"generate/physics": true
+},
+"PATH:BedroomA": {
+"generate/physics": true
+},
+"PATH:BedroomB": {
+"generate/physics": true
+},
+"PATH:Dining": {
+"generate/physics": true
+},
+"PATH:Entrance": {
+"generate/physics": true
+},
+"PATH:HallwayA": {
+"generate/physics": true
+},
+"PATH:Kitchen": {
+"generate/physics": true
+},
+"PATH:LaundryRoom": {
+"generate/physics": true
+},
+"PATH:LivingRoom": {
+"generate/physics": true
+},
+"PATH:MainWalls": {
 "generate/physics": true
 }
 }
