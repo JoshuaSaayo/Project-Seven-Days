@@ -1,6 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0l7317ckt7pu"]
+[gd_scene load_steps=22 format=3 uid="uid://d0l7317ckt7pu"]
 
+[ext_resource type="PackedScene" uid="uid://qb4ji84kr6i7" path="res://gltf/modern_house_a_a.glb" id="1_8h5f0"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
+[ext_resource type="PackedScene" uid="uid://ch877i2ufkntm" path="res://gltf/modern_house_a_b.glb" id="2_bxo5i"]
+[ext_resource type="PackedScene" uid="uid://coje8md17duax" path="res://gltf/modern_house_a_c.glb" id="3_ii8xf"]
+[ext_resource type="PackedScene" uid="uid://bdsnqsjdfkb4h" path="res://gltf/modern_house_b.glb" id="4_qpf7e"]
+[ext_resource type="PackedScene" uid="uid://rlye5xqrcjrn" path="res://gltf/modern_house_c.glb" id="5_n61n1"]
+[ext_resource type="PackedScene" uid="uid://bnohp7mfbpg86" path="res://gltf/modern_house_d_a.glb" id="6_qa0dq"]
+[ext_resource type="PackedScene" uid="uid://rl52e31nyk2a" path="res://gltf/modern_house_d_b.glb" id="7_rbqst"]
+[ext_resource type="PackedScene" uid="uid://bnmciq1imcp4n" path="res://gltf/modern_house_e.glb" id="8_7e63m"]
+[ext_resource type="PackedScene" uid="uid://c2pvj8y16xd7b" path="res://gltf/modern_house_f.glb" id="9_3ttva"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
 
@@ -56,6 +65,26 @@ directional_shadow_max_distance = 200.0
 
 [node name="House" type="Node3D" parent="Main"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="House" type="Node3D" parent="Main/House"]
+
+[node name="modern_house_a_a" parent="Main/House/House" instance=ExtResource("1_8h5f0")]
+
+[node name="modern_house_a_b" parent="Main/House/House" instance=ExtResource("2_bxo5i")]
+
+[node name="modern_house_a_c" parent="Main/House/House" instance=ExtResource("3_ii8xf")]
+
+[node name="modern_house_b" parent="Main/House/House" instance=ExtResource("4_qpf7e")]
+
+[node name="modern_house_c" parent="Main/House/House" instance=ExtResource("5_n61n1")]
+
+[node name="modern_house_d_a" parent="Main/House/House" instance=ExtResource("6_qa0dq")]
+
+[node name="modern_house_d_b" parent="Main/House/House" instance=ExtResource("7_rbqst")]
+
+[node name="modern_house_e" parent="Main/House/House" instance=ExtResource("8_7e63m")]
+
+[node name="modern_house_f" parent="Main/House/House" instance=ExtResource("9_3ttva")]
 
 [node name="Collision" type="Node3D" parent="Main/House"]
 
