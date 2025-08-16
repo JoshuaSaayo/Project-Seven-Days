@@ -28,13 +28,13 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 size = Vector3(146, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a2d3g"]
-size = Vector3(146, 1, 65)
+size = Vector3(146, 0.275391, 65)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r4hkc"]
 size = Vector3(61, 1, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2akx"]
-size = Vector3(52, 1, 7)
+size = Vector3(52, 0.268087, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmfcp"]
 size = Vector3(21.7587, 1, 7)
@@ -96,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 0, -29.5)
 shape = SubResource("BoxShape3D_vxsou")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 10.863, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 11.2253, -12)
 shape = SubResource("BoxShape3D_a2d3g")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
@@ -104,7 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 10.863, -48)
 shape = SubResource("BoxShape3D_r4hkc")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 10.863, -48)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 11.229, -48)
 shape = SubResource("BoxShape3D_y2akx")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
