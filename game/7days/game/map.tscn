@@ -1,9 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0l7317ckt7pu"]
+[gd_scene load_steps=13 format=3 uid="uid://d0l7317ckt7pu"]
 
-[ext_resource type="PackedScene" uid="uid://br3mf7y24ft3" path="res://3d_assets/house/house.tscn" id="1_vxsou"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
-[ext_resource type="PackedScene" uid="uid://cp4vtvjbr4fxe" path="res://3d_assets/house/lights.tscn" id="2_r4hkc"]
-[ext_resource type="PackedScene" uid="uid://tt1vc1b3n22y" path="res://3d_assets/house/doors.tscn" id="3_r4hkc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
 
@@ -18,6 +15,30 @@ fog_light_energy = 3.65
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxsou"]
+size = Vector3(146, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a2d3g"]
+size = Vector3(146, 1, 65)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4hkc"]
+size = Vector3(61, 1, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2akx"]
+size = Vector3(52, 1, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmfcp"]
+size = Vector3(21.7587, 1, 7)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a2d3g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4hkc"]
+emission_enabled = true
+emission = Color(0.82606, 0.82606, 0.82606, 1)
+emission_energy_multiplier = 2.55
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rmfcp"]
+
 [node name="Map" type="Node3D"]
 
 [node name="Main" type="Node3D" parent="."]
@@ -29,191 +50,536 @@ environment = SubResource("Environment_vxsou")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main/Enviroment"]
 transform = Transform3D(-0.260738, 0.963918, -0.0536399, 0.0908817, 0.0798228, 0.992658, 0.961122, 0.253949, -0.108416, 0, 116.532, 0)
+visible = false
 shadow_enabled = true
 directional_shadow_max_distance = 200.0
 
 [node name="House" type="Node3D" parent="Main"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="House" parent="Main/House" instance=ExtResource("1_vxsou")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+[node name="Collision" type="Node3D" parent="Main/House"]
 
-[node name="Lights" parent="Main/House" instance=ExtResource("2_r4hkc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+[node name="StaticBody3D" type="StaticBody3D" parent="Main/House/Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4.66375, -5)
 
-[node name="Doors" parent="Main/House" instance=ExtResource("3_r4hkc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 0, -29.5)
+shape = SubResource("BoxShape3D_vxsou")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 10.863, -12)
+shape = SubResource("BoxShape3D_a2d3g")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 10.863, -48)
+shape = SubResource("BoxShape3D_r4hkc")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 10.863, -48)
+shape = SubResource("BoxShape3D_y2akx")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Main/House/Collision/StaticBody3D"]
+transform = Transform3D(0.867653, -0.497171, 0, 0.497171, 0.867653, 0, 0, 0, 1, 54.3179, 5.53118, -48)
+shape = SubResource("BoxShape3D_rmfcp")
 
 [node name="Player" type="Node3D" parent="Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33331, 0)
 
 [node name="Player" parent="Main/Player" instance=ExtResource("2_a2d3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.9181, -3.35967, -3.36254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.082, 16.6403, -90.3625)
 
 [node name="Lights" type="Node3D" parent="Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.2, 35, -6.5)
 
 [node name="LightsLivingRoom" type="Node3D" parent="Main/Lights"]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 10.0
-shadow_enabled = true
-omni_range = 43.438
+[node name="Chandelier" type="Node3D" parent="Main/Lights/LightsLivingRoom"]
 
-[node name="DImLight" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, -12.6)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="OmniLight3D" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186, 17, -116)
+light_color = Color(1, 0.827991, 0.618485, 1)
+light_energy = 16.0
+omni_range = 178.677
+omni_attenuation = 1.118
 
-[node name="DImLight2" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, -38.2)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="OmniLight3D2" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.5, 17, -111.8)
+light_color = Color(1, 0.827991, 0.618485, 1)
+light_energy = 16.0
+omni_range = 178.677
+omni_attenuation = 1.118
 
-[node name="DImLight3" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, 12.8)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="OmniLight3D3" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164, 17, -123)
+light_color = Color(1, 0.827991, 0.618485, 1)
+light_energy = 16.0
+omni_range = 178.677
+omni_attenuation = 1.118
 
-[node name="DImLight4" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 6, 37.8)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="OmniLight3D4" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172, 17, -135)
+light_color = Color(1, 0.827991, 0.618485, 1)
+light_energy = 16.0
+omni_range = 178.677
+omni_attenuation = 1.118
 
-[node name="DImLight5" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, -12.6)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="OmniLight3D5" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom/Chandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.3, 17, -129.9)
+light_color = Color(1, 0.827991, 0.618485, 1)
+light_energy = 16.0
+omni_range = 178.677
+omni_attenuation = 1.118
 
-[node name="DImLight6" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, -38.2)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="CenterDimLight" type="Node3D" parent="Main/Lights/LightsLivingRoom"]
 
-[node name="DImLight7" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, 12.8)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
+[node name="SpotLight3D" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/CenterDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 131.7, 43, -90)
+light_color = Color(1, 0.827451, 0.619608, 1)
 shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
 
-[node name="DImLight8" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, 37.8)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/CenterDimLight/SpotLight3D"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
-[node name="DImLight9" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4799, 6, -12.6)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
+[node name="SpotLight3D2" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/CenterDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 131.643, 43, -155.537)
+light_color = Color(1, 0.827451, 0.619608, 1)
 shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
 
-[node name="DImLight10" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4799, 6, -38.2)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/CenterDimLight/SpotLight3D2"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
-[node name="DImLight11" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4799, 6, 12.8)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
+[node name="SpotLight3D3" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/CenterDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 221.798, 43, -90)
+light_color = Color(1, 0.827451, 0.619608, 1)
 shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
 
-[node name="DImLight12" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4799, 6, 37.8)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/CenterDimLight/SpotLight3D3"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
-[node name="DImLight13" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4799, 6, -12.6)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
+[node name="SpotLight3D4" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/CenterDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 221.642, 43, -155.437)
+light_color = Color(1, 0.827451, 0.619608, 1)
 shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
 
-[node name="DImLight14" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4799, 6, -38.2)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/CenterDimLight/SpotLight3D4"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
-[node name="DImLight15" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4799, 6, 12.8)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="SeconFloorDimLight" type="Node3D" parent="Main/Lights/LightsLivingRoom"]
 
-[node name="DImLight16" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4799, 6, 37.8)
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
+[node name="SpotLight3D5" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 247.042, 43, -155.437)
+light_color = Color(1, 0.827451, 0.619608, 1)
 shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
 
-[node name="DImLight17" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D5"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
-[node name="DImLight18" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
+[node name="SpotLight3D6" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 247.042, 43, -143.437)
+light_color = Color(1, 0.827451, 0.619608, 1)
 shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
 
-[node name="DImLight19" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D6"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
-[node name="DImLight20" type="OmniLight3D" parent="Main/Lights/LightsLivingRoom"]
-light_color = Color(1, 1, 0.945098, 1)
-light_energy = 5.0
+[node name="SpotLight3D7" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 247.042, 43, -131.437)
+light_color = Color(1, 0.827451, 0.619608, 1)
 shadow_enabled = true
-omni_range = 74.982
-omni_attenuation = 1.176
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D7"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 247.042, 43, -119.437)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D8"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 247.042, 43, -107.337)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D9"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 247.042, 43, -95.3366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D10"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 247.042, 43, -83.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D11"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D12" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 247.042, 43, -71.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D12"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D13" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 241.842, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D13"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D14" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 229.742, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D14"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D15" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 217.842, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D15"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D16" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 205.142, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D16"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, 0.684, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D17" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 193.842, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D17"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D18" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 181.942, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D18"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D19" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 182.142, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D19"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D20" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 169.842, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D20"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D21" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 157.942, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D21"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D22" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 145.842, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D22"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D23" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 133.942, 43, -64.4366)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 43.0
+spot_attenuation = -0.51
+spot_angle = 46.3224
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/SeconFloorDimLight/SpotLight3D23"]
+transform = Transform3D(1.32, 0, 0, 0, -4.37114e-08, 1.4157, 0, -1, -6.18822e-08, -0.108, -0.00129998, 0.341992)
+mesh = SubResource("PlaneMesh_rmfcp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="FirstFloorDimLight" type="Node3D" parent="Main/Lights/LightsLivingRoom"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 149.437, 9.4, -72.8263)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 167.437, 9.4, -72.8263)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D2"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 185.437, 9.4, -72.8263)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D3"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 203.437, 9.4, -72.8263)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D4"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 221.437, 9.4, -72.8263)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D5"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 239.437, 9.4, -72.8263)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D6"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 239.437, 9.4, -90.8263)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D7"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 239.437, 9.4, -108.826)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D8"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 239.437, 9.4, -126.826)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D9"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 239.437, 9.4, -144.826)
+light_color = Color(1, 0.827451, 0.619608, 1)
+shadow_enabled = true
+spot_range = 94.172
+spot_attenuation = -0.68
+spot_angle_attenuation = 1.36604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/LightsLivingRoom/FirstFloorDimLight/SpotLight3D10"]
+transform = Transform3D(3, -6.11959e-10, 1.14641e-14, 0, 3.0598e-10, 3, 2.62268e-07, 0.007, -1.31134e-07, -0.108, -0.00129998, 0.393092)
+mesh = SubResource("CylinderMesh_a2d3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
