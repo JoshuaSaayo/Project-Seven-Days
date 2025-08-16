@@ -76,17 +76,17 @@ func _physics_process(delta):
 	velocity.x = direction.x * current_speed
 	velocity.z = direction.z * current_speed
 	
-	if get_last_slide_collision():
-		var collision_normal = get_last_slide_collision().get_normal()
-		if collision_normal.y == clamp(collision_normal.y, 0.1, 0.9):  # Adjust threshold as needed
-			
-			velocity.y +=  0.1
-			force_step = true
-			print(velocity.y)
-		else:
-			force_step = false
-	else:
-		force_step = false
+	#if get_last_slide_collision():
+		#var collision_normal = get_last_slide_collision().get_normal()
+		#if collision_normal.y == clamp(collision_normal.y, 0.1, 0.9):  # Adjust threshold as needed
+			#
+			#velocity.y +=  0.1
+			#force_step = true
+			#print(velocity.y)
+		#else:
+			#force_step = false
+	#else:
+		#force_step = false
 		
 	
 	move_and_slide()
