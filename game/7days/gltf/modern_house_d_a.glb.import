@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnohp7mfbpg86"
-valid=false
+uid="uid://dsg76e3uvc477"
+path="res://.godot/imported/modern_house_d_a.glb-35f76a6d42860321bb7a188314c325a8.scn"
 
 [deps]
 
 source_file="res://gltf/modern_house_d_a.glb"
+dest_files=["res://.godot/imported/modern_house_d_a.glb-35f76a6d42860321bb7a188314c325a8.scn"]
 
 [params]
 
