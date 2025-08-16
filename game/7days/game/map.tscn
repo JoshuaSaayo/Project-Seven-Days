@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://d0l7317ckt7pu"]
+[gd_scene load_steps=27 format=4 uid="uid://d0l7317ckt7pu"]
 
 [ext_resource type="PackedScene" uid="uid://qb4ji84kr6i7" path="res://gltf/modern_house_a_a.glb" id="1_8h5f0"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bnmciq1imcp4n" path="res://gltf/modern_house_e.glb" id="8_7e63m"]
 [ext_resource type="PackedScene" uid="uid://c2pvj8y16xd7b" path="res://gltf/modern_house_f.glb" id="9_3ttva"]
 [ext_resource type="Texture2D" uid="uid://dms5abbex6w0a" path="res://gltf/kitchen_light_panel_house8k.png" id="11_bxo5i"]
-[ext_resource type="PackedScene" uid="uid://4o2gr0hibxiq" path="res://gltf/misc/kitchen_light_bulb.glb" id="12_ii8xf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
 
@@ -314,8 +313,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.247
 mesh = SubResource("SphereMesh_qpf7e")
 surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
-[node name="kitchen_light_bulb" parent="Main/Lights/kitchen/CenterCounterLight/SpotLight3D14" instance=ExtResource("12_ii8xf")]
-
 [node name="SpotLight3D15" type="SpotLight3D" parent="Main/Lights/kitchen/CenterCounterLight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 36.7887, -0.765601, -59.7397)
 light_color = Color(1, 0.827451, 0.619608, 1)
@@ -330,8 +327,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.247
 mesh = SubResource("SphereMesh_qpf7e")
 surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
-[node name="kitchen_light_bulb" parent="Main/Lights/kitchen/CenterCounterLight/SpotLight3D15" instance=ExtResource("12_ii8xf")]
-
 [node name="SpotLight3D16" type="SpotLight3D" parent="Main/Lights/kitchen/CenterCounterLight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 36.7972, -0.7656, -43.8313)
 light_color = Color(1, 0.827451, 0.619608, 1)
@@ -345,8 +340,6 @@ spot_angle_attenuation = 1.36604
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.247625, 0.0275155, 2)
 mesh = SubResource("SphereMesh_qpf7e")
 surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
-
-[node name="kitchen_light_bulb" parent="Main/Lights/kitchen/CenterCounterLight/SpotLight3D16" instance=ExtResource("12_ii8xf")]
 
 [node name="LivingRoom" type="Node3D" parent="Main/Lights"]
 
