@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var move_speed = 750
-@export var sprint_speed = 1000
+@export var move_speed = 1000
+@export var sprint_speed = 1250
 @export var jump_force = 2.0
 @export var mouse_sensitivity = 0.2
 @export var deceleration = 15.0
@@ -99,6 +99,7 @@ func _process(delta: float) -> void:
 		velocity.y -= gravity * delta
 
 func object_checker() -> void:
+	print(detected_object)
 	if detected_object.is_empty():
 		return
 		
@@ -118,7 +119,7 @@ func _check_action() -> void:
 	if current_object == []:
 		return
 	var node = get_tree().get_first_node_in_group(current_object[1])
-	
+	print(current_object)
 	if is_instance_valid(node):
 		node.init_action(current_object[0])
 

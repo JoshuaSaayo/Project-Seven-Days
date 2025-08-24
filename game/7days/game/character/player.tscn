@@ -8,7 +8,7 @@
 height = 7.59416
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ntxbt"]
-size = Vector3(0.65625, 0.378849, 3.35925)
+size = Vector3(0.0737915, 0.0684743, 3.35925)
 
 [node name="Player" type="CharacterBody3D"]
 floor_stop_on_slope = false
@@ -33,9 +33,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.791, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/PlayerDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000150204, 9.49488, -2.53826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00667852, 9.49975, -2.53826)
 shape = SubResource("BoxShape3D_ntxbt")
 debug_color = Color(0.656344, 0.386526, 0.873097, 0.42)
+
+[node name="POV" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="POV"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="area_entered" from="CameraPivot/PlayerDetector" to="." method="_on_player_detector_area_entered"]
 [connection signal="area_exited" from="CameraPivot/PlayerDetector" to="." method="_on_player_detector_area_exited"]
