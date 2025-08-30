@@ -1,0 +1,98 @@
+[gd_scene load_steps=22 format=3 uid="uid://edc6scgcutao"]
+
+[ext_resource type="Texture2D" uid="uid://baqluqh3cqcpy" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_00.png" id="1_una5g"]
+[ext_resource type="Texture2D" uid="uid://hh2u3vj8judv" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_01.png" id="2_ir02n"]
+[ext_resource type="Texture2D" uid="uid://co4wqq1w74sak" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_02.png" id="3_03th8"]
+[ext_resource type="Texture2D" uid="uid://2a1pk1tsxlvl" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_03.png" id="4_d0suu"]
+[ext_resource type="Texture2D" uid="uid://cm1q0lwv22a34" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_04.png" id="5_5yhwq"]
+[ext_resource type="Texture2D" uid="uid://8872bk4gr22j" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_05.png" id="6_csv6k"]
+[ext_resource type="Texture2D" uid="uid://b243xgwyib4bj" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_06.png" id="7_gy6c8"]
+[ext_resource type="Texture2D" uid="uid://wo5umjnd0hat" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_07.png" id="8_406q1"]
+[ext_resource type="Texture2D" uid="uid://0kbki3grisme" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_08.png" id="9_ph0qs"]
+[ext_resource type="Texture2D" uid="uid://c1q40w254k3dn" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_09.png" id="10_m802k"]
+[ext_resource type="Texture2D" uid="uid://usprcaso3720" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_10.png" id="11_a0at4"]
+[ext_resource type="Texture2D" uid="uid://dca028equac2h" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_11.png" id="12_ghrla"]
+[ext_resource type="Texture2D" uid="uid://bwu6yqaql8xvq" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_12.png" id="13_jgiyi"]
+[ext_resource type="Texture2D" uid="uid://cxhwv44qm7qqr" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_13.png" id="14_qyq0g"]
+[ext_resource type="Texture2D" uid="uid://dxjujso68471n" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_14.png" id="15_burio"]
+[ext_resource type="Texture2D" uid="uid://dk66qugls1pbw" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_15.png" id="16_e3bp4"]
+[ext_resource type="Texture2D" uid="uid://clkj2nxcf2k1c" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_16.png" id="17_7ptp5"]
+[ext_resource type="Texture2D" uid="uid://bisnor4s6k2qy" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_17.png" id="18_1jmvi"]
+[ext_resource type="Texture2D" uid="uid://ddw24wlotcqbd" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_18.png" id="19_ufn3c"]
+[ext_resource type="Texture2D" uid="uid://bqe72tc5t3160" path="res://asset/anomaly_assets/anomaly3/Anomaly3-animation_19.png" id="20_acwur"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_os7xj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_una5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ir02n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_03th8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d0suu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5yhwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_csv6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gy6c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_406q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ph0qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m802k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_a0at4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ghrla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jgiyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qyq0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_burio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_e3bp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7ptp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_1jmvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ufn3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_acwur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="anomaly_c" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(169, 633)
+sprite_frames = SubResource("SpriteFrames_os7xj")
+frame_progress = 0.653018
+speed_scale = 2.0
