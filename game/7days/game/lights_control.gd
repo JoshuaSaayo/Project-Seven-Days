@@ -17,7 +17,7 @@ extends Node3D
 }
 
 func _ready() -> void:
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	_light_room("living_room","_all_",false)
 	await get_tree().create_timer(1.0).timeout
 	_light_room("living_room","_all_",true)
