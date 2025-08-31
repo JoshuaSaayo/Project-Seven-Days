@@ -1,0 +1,41 @@
+{ "skeleton": { "images": "C:/Users/Joshua PC/OneDrive/Desktop/parts/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "blood", "bone": "root", "attachment": "blood" },
+	{ "name": "blood6", "bone": "root", "attachment": "blood6" },
+	{ "name": "blood5", "bone": "root", "attachment": "blood5" },
+	{ "name": "blood4", "bone": "root", "attachment": "blood4" },
+	{ "name": "blood3", "bone": "root", "attachment": "blood3" },
+	{ "name": "blood2", "bone": "root", "attachment": "blood2" },
+	{ "name": "blood1", "bone": "root", "attachment": "blood1" }
+],
+"skins": {
+	"default": {
+		"blood": {
+			"blood": { "x": 337.5, "y": -659.5, "width": 493, "height": 1243 }
+		},
+		"blood6": {
+			"blood6": { "x": 337.5, "y": -236, "width": 493, "height": 396 }
+		},
+		"blood5": {
+			"blood5": { "x": 337.5, "y": -221.5, "width": 493, "height": 367 }
+		},
+		"blood4": {
+			"blood4": { "x": 337.5, "y": -185, "width": 493, "height": 294 }
+		},
+		"blood3": {
+			"blood3": { "x": 337.5, "y": -182.5, "width": 493, "height": 289 }
+		},
+		"blood2": {
+			"blood2": { "x": 337.5, "y": -126, "width": 493, "height": 176 }
+		},
+		"blood1": {
+			"blood1": { "x": 337.5, "y": -120.5, "width": 493, "height": 165 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}
