@@ -1,26 +1,17 @@
 extends Node3D
 
-@onready var door_map : Dictionary = {
-	"Laundry"  : $LaundryDoorPivot,
-	"BathroomB"  : $BathroomBDoorPivot,
-	"BathroomA"  : $BathroomADoorPivot,
-	"HallwayA"  : $HallwayADoorPivot,
-	"BedroomB"  : $BedroomBDoorPivot,
-	"BedroomA"  : $BedroomADoorPivot,
-	"DiningDoor"  : $DiningDoorPivot8,
-}
+func _ready() -> void:
+	add_to_group(name)
+	name = "Door||"+name
 
-
-func toggle_door(door) -> void:
-	if !door_map.has(door):
-		return
-	var pivot : Node3D = door_map[door]
+func toggle_door() -> void:
+	var pivot : Node3D = $door
 	var tween = get_tree().create_tween()
 	
-	if pivot.rotation.y != 0:
-		tween.tween_property(pivot, "rotation", Vector3(0,0,0), 1.5).set_trans(Tween.TRANS_SPRING)
+	if pivot.position.x != 0:
+		tween.tween_property(pivot, "position", Vector3(0,0,0), 1.5).set_trans(Tween.TRANS_SPRING)
 	else:
-		tween.tween_property(pivot, "rotation", Vector3(0,1.6,0), 1.5).set_trans(Tween.TRANS_SPRING)
+		tween.tween_property(pivot, "position", Vector3(-4.361,0,0), 1.5).set_trans(Tween.TRANS_SPRING)
 		
 func init_action(text : String) ->void:
-	toggle_door(text)
+	toggle_door()

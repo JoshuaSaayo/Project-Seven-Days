@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://d0l7317ckt7pu"]
+[gd_scene load_steps=84 format=4 uid="uid://d0l7317ckt7pu"]
 
 [ext_resource type="PackedScene" uid="uid://qb4ji84kr6i7" path="res://gltf/modern_house_a_a.glb" id="1_8h5f0"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c300bnbsvf7rq" path="res://gltf/misc/plain_painting.glb" id="10_qa0dq"]
 [ext_resource type="Texture2D" uid="uid://dms5abbex6w0a" path="res://gltf/kitchen_light_panel_house8k.png" id="11_bxo5i"]
 [ext_resource type="Script" uid="uid://dklcqwwot32q5" path="res://game/lights_control.gd" id="11_qpf7e"]
+[ext_resource type="PackedScene" uid="uid://tt1vc1b3n22y" path="res://3d_assets/house/doors.tscn" id="11_rbqst"]
 [ext_resource type="Texture2D" uid="uid://d0mbfkic31fir" path="res://asset/test/mumu1.png" id="12_ii8xf"]
 [ext_resource type="PackedScene" uid="uid://bxk4noclur4t3" path="res://game/object/light_switch.tscn" id="13_n61n1"]
 
@@ -471,6 +472,20 @@ shape = SubResource("BoxShape3D_engmq")
 [node name="Painting" type="Node3D" parent="Main/House"]
 
 [node name="plain_painting" parent="Main/House/Painting" instance=ExtResource("10_qa0dq")]
+
+[node name="Doors" type="Node3D" parent="Main/House"]
+
+[node name="Door" parent="Main/House/Doors" instance=ExtResource("11_rbqst")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 39.5729, 5.2, -28.9325)
+
+[node name="Door4" parent="Main/House/Doors" instance=ExtResource("11_rbqst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3729, 5.2, -35.0325)
+
+[node name="Door2" parent="Main/House/Doors" instance=ExtResource("11_rbqst")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 39.5729, 16, -23.4325)
+
+[node name="Door3" parent="Main/House/Doors" instance=ExtResource("11_rbqst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.772886, 16, -34.0325)
 
 [node name="Player" type="Node3D" parent="Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33331, 0)
@@ -1792,7 +1807,6 @@ room = "ground_floor_bathroom"
 light_target = "StripLight"
 
 [node name="MUMU" type="Node3D" parent="Main"]
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Main/MUMU"]
 transform = Transform3D(1.03238e-07, -5.96047e-08, 1, 0.5, 0.866025, 7.10543e-15, -0.866025, 0.5, 1.19209e-07, 115.182, 58.7128, -83.1962)

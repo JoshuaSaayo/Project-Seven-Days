@@ -94,5 +94,6 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(169, 633)
 sprite_frames = SubResource("SpriteFrames_os7xj")
-frame_progress = 0.624836
+autoplay = "default"
+frame_progress = 0.449311
 speed_scale = 2.0

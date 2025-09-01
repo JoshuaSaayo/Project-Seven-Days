@@ -119,7 +119,6 @@ func _check_action() -> void:
 	if current_object == []:
 		return
 	var node = get_tree().get_first_node_in_group(current_object[1])
-	print(current_object)
 	if is_instance_valid(node):
 		node.init_action(current_object[0])
 
