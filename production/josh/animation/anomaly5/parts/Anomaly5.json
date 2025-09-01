@@ -1,0 +1,29 @@
+{ "skeleton": { "images": "C:/Users/Joshua PC/OneDrive/Desktop/parts/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "hair", "bone": "root", "attachment": "hair" },
+	{ "name": "torso", "bone": "root", "attachment": "torso" },
+	{ "name": "faces", "bone": "root", "attachment": "faces" },
+	{ "name": "face", "bone": "root", "attachment": "face" }
+],
+"skins": {
+	"default": {
+		"hair": {
+			"hair": { "x": 360, "y": -306, "width": 722, "height": 614 }
+		},
+		"torso": {
+			"torso": { "x": 360, "y": -640, "width": 722, "height": 1282 }
+		},
+		"faces": {
+			"faces": { "x": 367, "y": -599.5, "width": 256, "height": 261 }
+		},
+		"face": {
+			"face": { "x": 398.5, "y": -272.5, "width": 389, "height": 385 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}
