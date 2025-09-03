@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6n4mxdem17b7"]
+[gd_scene load_steps=22 format=3 uid="uid://c7c0fg71jiprw"]
 
 [ext_resource type="Texture2D" uid="uid://caxw6optidd2p" path="res://asset/anomaly_assets/anomaly_a/Anomaly1-animation_00.png" id="1_3vvnh"]
 [ext_resource type="Texture2D" uid="uid://droqduaoss7yy" path="res://asset/anomaly_assets/anomaly_a/Anomaly1-animation_01.png" id="2_uou3m"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://0pkpdrmpee7r" path="res://asset/anomaly_assets/anomaly_a/Anomaly1-animation_18.png" id="19_rfa1d"]
 [ext_resource type="Texture2D" uid="uid://cbdcw06engmer" path="res://asset/anomaly_assets/anomaly_a/Anomaly1-animation_19.png" id="20_t2iam"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_41fbk"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vvnh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -89,11 +89,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="anomaly_a" type="Node2D"]
+[node name="anomaly_a" type="Node3D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(408, 651)
-sprite_frames = SubResource("SpriteFrames_41fbk")
-autoplay = "default"
-frame_progress = 0.599807
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3vvnh")
+frame_progress = 0.661406
 speed_scale = 2.0
