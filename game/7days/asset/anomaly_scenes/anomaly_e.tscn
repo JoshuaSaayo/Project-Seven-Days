@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bne6coqt8wes"]
+[gd_scene load_steps=22 format=3 uid="uid://bri5o35trmvt1"]
 
 [ext_resource type="Texture2D" uid="uid://c4lo572fbtgqx" path="res://asset/anomaly_assets/anomaly_e/Anomaly5-animation_00.png" id="1_rjndm"]
 [ext_resource type="Texture2D" uid="uid://d3edfiwfyydu3" path="res://asset/anomaly_assets/anomaly_e/Anomaly5-animation_01.png" id="2_tnq10"]
@@ -89,9 +89,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="anomaly_e" type="Node3D"]
+[node name="anomaly_e" type="Node2D"]
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rjndm")
-frame_progress = 0.249269
-speed_scale = 2.0
+frame_progress = 0.0772499
+speed_scale = 3.0

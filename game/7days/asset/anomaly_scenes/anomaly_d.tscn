@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cvs45saoem31a"]
+[gd_scene load_steps=22 format=3 uid="uid://bvdpb2tdnttwn"]
 
 [ext_resource type="Texture2D" uid="uid://bdh05fpxlnyta" path="res://asset/anomaly_assets/anomaly_d/Anomaly4-animation_00.png" id="1_rl0wu"]
 [ext_resource type="Texture2D" uid="uid://ddkckyxro0h0k" path="res://asset/anomaly_assets/anomaly_d/Anomaly4-animation_01.png" id="2_lbhu2"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bd7fe5ut6t0yi" path="res://asset/anomaly_assets/anomaly_d/Anomaly4-animation_18.png" id="19_toc2w"]
 [ext_resource type="Texture2D" uid="uid://d34vvk3inb5qf" path="res://asset/anomaly_assets/anomaly_d/Anomaly4-animation_19.png" id="20_o4i8f"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_kon3n"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rl0wu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -89,8 +89,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="anomaly_d" type="Node3D"]
+[node name="anomaly_d" type="Node2D"]
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-sprite_frames = SubResource("SpriteFrames_kon3n")
-frame_progress = 0.174961
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rl0wu")
+frame_progress = 0.109315
+speed_scale = 2.0
