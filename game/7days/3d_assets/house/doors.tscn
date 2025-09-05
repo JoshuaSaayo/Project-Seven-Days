@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://tt1vc1b3n22y"]
+[gd_scene load_steps=5 format=3 uid="uid://tt1vc1b3n22y"]
 
 [ext_resource type="Script" uid="uid://dt76e5ul80y61" path="res://3d_assets/house/doors.gd" id="1_7rbqc"]
 [ext_resource type="PackedScene" uid="uid://k1icv8l2484y" path="res://gltf/door.glb" id="2_7rbqc"]
+[ext_resource type="AudioStream" uid="uid://bqm1o7qjlrsee" path="res://asset/sounds/bg/sliding_door.mp3" id="3_3apmy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rbqc"]
 size = Vector3(5.00952, 9.1427, 2.58398)
@@ -17,5 +18,8 @@ transform = Transform3D(2.55451, 0, 0, 0, 1.46065, 0, 0, 0, 1, -17.42, 83.445, 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3554, 4.07135, -0.356689)
 shape = SubResource("BoxShape3D_7rbqc")
+
+[node name="SlideSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_3apmy")
 
 [editable path="door"]

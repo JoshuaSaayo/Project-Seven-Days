@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://d0l7317ckt7pu"]
+[gd_scene load_steps=82 format=4 uid="uid://d0l7317ckt7pu"]
 
 [ext_resource type="PackedScene" uid="uid://qb4ji84kr6i7" path="res://gltf/modern_house_a_a.glb" id="1_8h5f0"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dms5abbex6w0a" path="res://gltf/kitchen_light_panel_house8k.png" id="11_bxo5i"]
 [ext_resource type="Script" uid="uid://dklcqwwot32q5" path="res://game/lights_control.gd" id="11_qpf7e"]
 [ext_resource type="PackedScene" uid="uid://tt1vc1b3n22y" path="res://3d_assets/house/doors.tscn" id="11_rbqst"]
-[ext_resource type="Texture2D" uid="uid://d0mbfkic31fir" path="res://asset/test/mumu1.png" id="12_ii8xf"]
 [ext_resource type="PackedScene" uid="uid://bxk4noclur4t3" path="res://game/object/light_switch.tscn" id="13_n61n1"]
+[ext_resource type="AudioStream" uid="uid://dgwfbvu6q0fml" path="res://asset/sounds/bg/bg_sound.mp3" id="16_rbqst"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
 
@@ -251,14 +251,6 @@ bottom_radius = 3.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_qpf7e"]
 size = Vector3(1.49, 0, 9.305)
-
-[sub_resource type="QuadMesh" id="QuadMesh_qpf7e"]
-size = Vector2(15, 25)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n61n1"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("12_ii8xf")
 
 [node name="Map" type="Node3D"]
 
@@ -1808,7 +1800,9 @@ light_target = "StripLight"
 
 [node name="MUMU" type="Node3D" parent="Main"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/MUMU"]
-transform = Transform3D(1.03238e-07, -5.96047e-08, 1, 0.5, 0.866025, 7.10543e-15, -0.866025, 0.5, 1.19209e-07, 115.182, 58.7128, -83.1962)
-mesh = SubResource("QuadMesh_qpf7e")
-surface_material_override/0 = SubResource("StandardMaterial3D_n61n1")
+[node name="Sounds" type="Node3D" parent="Main"]
+
+[node name="BGM" type="AudioStreamPlayer3D" parent="Main/Sounds"]
+stream = ExtResource("16_rbqst")
+volume_db = 80.0
+autoplay = true

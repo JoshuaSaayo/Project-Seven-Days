@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cft7x1gqa3lkb"]
+[gd_scene load_steps=6 format=3 uid="uid://cft7x1gqa3lkb"]
 
 [ext_resource type="Script" uid="uid://drpcy3fd4nju7" path="res://player.gd" id="1_ntxbt"]
+[ext_resource type="AudioStream" uid="uid://c8hy7f6j7fctf" path="res://asset/sounds/bg/normal_walk.mp3" id="2_d8qgm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntxbt"]
 
@@ -58,6 +59,10 @@ offset_right = 2.5
 offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Walk" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_d8qgm")
+volume_db = 80.0
 
 [connection signal="area_entered" from="CameraPivot/PlayerDetector" to="." method="_on_player_detector_area_entered"]
 [connection signal="area_exited" from="CameraPivot/PlayerDetector" to="." method="_on_player_detector_area_exited"]

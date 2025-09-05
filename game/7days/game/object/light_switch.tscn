@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://bxk4noclur4t3"]
+[gd_scene load_steps=15 format=4 uid="uid://bxk4noclur4t3"]
 
 [ext_resource type="Script" uid="uid://d0eibiqhtx6tq" path="res://game/object/light_switch.gd" id="1_2ij2f"]
 [ext_resource type="Texture2D" uid="uid://dvnh3bwd3o7wd" path="res://gltf/misc/light_switch_black_box_switch.png" id="1_dav1k"]
+[ext_resource type="AudioStream" uid="uid://c2n8gnvyuwos7" path="res://asset/sounds/bg/light_on.mp3" id="3_x72ld"]
+[ext_resource type="AudioStream" uid="uid://csv307mja3ddr" path="res://asset/sounds/bg/light_off.mp3" id="4_78oy5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ij2f"]
 size = Vector3(0.4, 0.8, 0.9)
@@ -155,3 +157,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_b73if")
 }
 speed_scale = 3.0
+
+[node name="On" type="AudioStreamPlayer3D" parent="Main"]
+stream = ExtResource("3_x72ld")
+volume_db = 80.0
+
+[node name="Off" type="AudioStreamPlayer3D" parent="Main"]
+stream = ExtResource("4_78oy5")
+volume_db = 80.0

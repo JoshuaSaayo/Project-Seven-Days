@@ -7,6 +7,9 @@ extends CharacterBody3D
 @export var deceleration = 15.0
 @export var max_pitch = 20.0 # degrees
 
+@onready var walk_sound: AudioStreamPlayer3D = $Walk
+
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var current_speed = 0.0
 var target_speed = 0.0
@@ -67,6 +70,12 @@ func _physics_process(delta):
 		current_speed = target_speed * delta
 	else:
 		current_speed = 0
+		
+	if direction == Vector3.ZERO:
+		play_walk(false)
+	else:
+		play_walk(true)
+		
 	
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -90,7 +99,15 @@ func _physics_process(delta):
 		
 	
 	move_and_slide()
-	
+
+func play_walk(play) -> void:
+	if play and !walk_sound.playing:
+		walk_sound.play()
+		return
+	elif !play:
+		walk_sound.stop()
+		return
+		
 
 func _process(delta: float) -> void:
 	# Apply gravity
