@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AIAssistantResource" load_steps=5 format=3 uid="uid://dwu17tyjh7u85"]
+
+[ext_resource type="Script" uid="uid://drp7qd48cku8h" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="1_4d654"]
+[ext_resource type="Script" uid="uid://ccix4511n6vku" path="res://addons/ai_assistant_hub/assistants/ai_assistant_resource.gd" id="2_vhd4i"]
+[ext_resource type="Texture2D" uid="uid://qjvopjqelt0m" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_3dmsicons.png" id="3_vhd4i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv3lu"]
+atlas = ExtResource("3_vhd4i")
+region = Rect2(772.091, 769.455, 25.4545, 28.1818)
+
+[resource]
+script = ExtResource("2_vhd4i")
+type_name = "Seven"
+type_icon = SubResource("AtlasTexture_lv3lu")
+ai_model = "models/gemini-2.5-pro"
+ai_description = "You are a useful Godot AI assistant."
+use_custom_temperature = false
+custom_temperature = 0.5
+quick_prompts = Array[ExtResource("1_4d654")]([])
+metadata/_custom_type_script = "uid://ccix4511n6vku"
