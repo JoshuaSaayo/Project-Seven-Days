@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dxbvt")
-text_sequence = Array[String](["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.", "Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus.", "Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor.", "Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.", "Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."])
+text_sequence = Array[String](["I found a rental house. The rent is incredibly cheap.", "It’s close to my job—that’s a plus.", "My boss introduced me to the landlord. He promised me a cozy place to stay. The landlord seemed friendly enough.", "The only thing I found strange was when I asked about the previous tenants… he avoided the question.", "But whatever—I’ll find out soon enough.", "Time to pack my things and move in."])
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 1
@@ -43,6 +43,8 @@ offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 46
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="Main"]
 

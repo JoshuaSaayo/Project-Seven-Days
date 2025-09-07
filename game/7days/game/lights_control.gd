@@ -17,8 +17,8 @@ extends Node3D
 }
 
 func _ready() -> void:
-	await get_tree().create_timer(3.0).timeout
-	_light_room("living_room","_all_",false)
+	#await get_tree().create_timer(3.0).timeout
+	#_light_room("living_room","_all_",false)
 	_connect_light_switches()
 
 func _connect_light_switches() -> void:
@@ -31,7 +31,7 @@ func _light_room(room : String, room_light_name : String, status: bool) -> void:
 	
 	if !rooms.has(room):
 		return
-	print(rooms)
+	
 	lights = rooms[room].get_children()
 	
 	if room_light_name == "_all_":

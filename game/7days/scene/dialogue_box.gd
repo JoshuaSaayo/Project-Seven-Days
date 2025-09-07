@@ -1,6 +1,6 @@
 extends Control
 
-@export var dialogue_data: Array[Dictionary] = [
+@export var dialogue_data = [
 	{"speaker": "Scribe", "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 	{"speaker": "Scholar", "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
 	{"speaker": "Scribe", "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
@@ -13,6 +13,7 @@ extends Control
 
 signal dialogue_finished
 
+@onready var script_manager: Node = $ScriptManager
 @onready var name_label: Label = $NameLabel
 @onready var text_label: RichTextLabel = $RichTextLabel
 @onready var type_timer: Timer = $Timer
@@ -33,6 +34,12 @@ func _ready() -> void:
 	pause_timer.timeout.connect(_on_pause_timer_timeout)
 	start()
 
+func set_new_dialogue(key) -> void:
+	if script_manager.dialogue_container.has(key):
+		print(script_manager.dialogue_container[key])
+		dialogue_data = script_manager.dialogue_container[key]
+		start()
+
 func _input(event: InputEvent) -> void:
 	if visible and _is_typing:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
@@ -40,6 +47,7 @@ func _input(event: InputEvent) -> void:
 
 
 func start() -> void:
+	print("hhhhhh")
 	_current_line_index = 0
 	show()
 	_show_next_line()

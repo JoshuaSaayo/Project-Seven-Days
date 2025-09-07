@@ -1,5 +1,6 @@
-[gd_scene load_steps=82 format=4 uid="uid://d0l7317ckt7pu"]
+[gd_scene load_steps=84 format=4 uid="uid://d0l7317ckt7pu"]
 
+[ext_resource type="Script" uid="uid://cr5ivkjjnk78p" path="res://game/map.gd" id="1_7e63m"]
 [ext_resource type="PackedScene" uid="uid://qb4ji84kr6i7" path="res://gltf/modern_house_a_a.glb" id="1_8h5f0"]
 [ext_resource type="PackedScene" uid="uid://cft7x1gqa3lkb" path="res://game/character/player.tscn" id="2_a2d3g"]
 [ext_resource type="PackedScene" uid="uid://ch877i2ufkntm" path="res://gltf/modern_house_a_b.glb" id="2_bxo5i"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://tt1vc1b3n22y" path="res://3d_assets/house/doors.tscn" id="11_rbqst"]
 [ext_resource type="PackedScene" uid="uid://bxk4noclur4t3" path="res://game/object/light_switch.tscn" id="13_n61n1"]
 [ext_resource type="AudioStream" uid="uid://dgwfbvu6q0fml" path="res://asset/sounds/bg/bg_sound.mp3" id="16_rbqst"]
+[ext_resource type="PackedScene" uid="uid://gijaxkijv6bf" path="res://scene/dialogue_box.tscn" id="18_3ttva"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37pa0"]
 
@@ -253,6 +255,7 @@ bottom_radius = 3.2
 size = Vector3(1.49, 0, 9.305)
 
 [node name="Map" type="Node3D"]
+script = ExtResource("1_7e63m")
 
 [node name="Main" type="Node3D" parent="."]
 
@@ -894,7 +897,6 @@ omni_attenuation = -0.77
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Main/Lights/Kitchen/MainLight/SpotLight3D"]
 transform = Transform3D(7.775, 1.23817e-08, -1.96687e-14, 0, 3.58433e-09, 2.98, -1.17399e-06, 0.082, -1.3026e-07, -26.7171, -43.6293, 5.70668)
 mesh = SubResource("ArrayMesh_ii8xf")
-surface_material_override/0 = SubResource("StandardMaterial3D_r4hkc")
 
 [node name="LivingRoom" type="Node3D" parent="Main/Lights"]
 
@@ -1806,3 +1808,7 @@ light_target = "StripLight"
 stream = ExtResource("16_rbqst")
 volume_db = 80.0
 autoplay = true
+
+[node name="Triggers" type="Node3D" parent="Main"]
+
+[node name="DialogueBox" parent="." instance=ExtResource("18_3ttva")]
