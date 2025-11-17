@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1xxqwwr3p3lu"]
+
+[ext_resource type="Script" uid="uid://br2cs5yxtqi1r" path="res://UI/prompt/prompt.gd" id="1_ly83h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1wvt"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Prompt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ly83h")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.678431)
+
+[node name="Panel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.0
+offset_top = -102.0
+offset_right = 381.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Confirm" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 162.0
+offset_right = 221.0
+offset_bottom = 236.0
+text = "Confirm"
+
+[node name="Decline" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 162.0
+offset_right = 823.0
+offset_bottom = 236.0
+text = "Decline"
+
+[node name="OK" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 162.0
+offset_right = 526.0
+offset_bottom = 236.0
+text = "OKAY"
+
+[node name="Message" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 25.0
+offset_right = 749.0
+offset_bottom = 136.0
+text = " TEXT TEXT TEXT TEXTTEXT TEXTTEXT TEXT TEXTTEXT TEXT TEXTTEXT TEXT TEXT TEXTTEXT TEXT TEXT TEXTTEXT TEXT TEXT"
+label_settings = SubResource("LabelSettings_h1wvt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

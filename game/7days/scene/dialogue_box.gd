@@ -32,7 +32,6 @@ func _ready() -> void:
 	
 	type_timer.timeout.connect(_on_type_timer_timeout)
 	pause_timer.timeout.connect(_on_pause_timer_timeout)
-	start()
 
 func set_new_dialogue(key) -> void:
 	if script_manager.dialogue_container.has(key):
@@ -47,7 +46,6 @@ func _input(event: InputEvent) -> void:
 
 
 func start() -> void:
-	print("hhhhhh")
 	_current_line_index = 0
 	show()
 	_show_next_line()

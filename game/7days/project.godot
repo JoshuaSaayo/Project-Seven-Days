@@ -11,13 +11,19 @@ config_version=5
 [application]
 
 config/name="7Days"
-run/main_scene="uid://d0l7317ckt7pu"
+run/main_scene="uid://cbgkrnpa2ypg8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://cgpgkxgihj6dq"
 
 [autoload]
 
 Globals="*res://singleton/globals.tscn"
+Constant="*res://singleton/constant.tscn"
+Save="*res://UI/singleton/save.tscn"
 
 [display]
 
